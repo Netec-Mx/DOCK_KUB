@@ -1,4 +1,4 @@
-# Funciones que podría usar el instructor
+# Funciones que podría usar el instructorr
 En este documento se muestran algunas muestras de formatos que se pueden usar en el archivo **README.me** que pueden ser de ayuda para el instructor
 
 - [Fragmentos de código](#fragmentos-de-codigo)
