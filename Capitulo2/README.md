@@ -8,8 +8,14 @@ Al finalizar la práctica, serás capaz de:
 ## Duración aproximada:
 - 45 minutos.
 
-## Instrucciones 
-Los participantes se enfrentarán al desafío de aplicar técnicas avanzadas en la gestión de contenedores Docker.
+---
+
+**[⬅️ Atrás]()** | **[Lista General]()** | **[Siguiente ➡️]()**
+
+---
+
+## Instrucciones:
+En esta práctica te enfrentarás al desafío de aplicar técnicas avanzadas en la gestión de contenedores Docker.
 
 ### Tarea 1. Configuración de una Aplicación NodeJS.
 
