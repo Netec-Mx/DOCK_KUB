@@ -1,37 +1,46 @@
-# Nombre del laboratorio 
+# Práctica 6. Orquestación de contenedores con Docker Compose
 
 ## Objetivo de la práctica:
+
 Al finalizar la práctica, serás capaz de:
 - Comprender los fundamentos de Docker Compose para la orquestación de contenedores en un entorno de desarrollo.
 - Aprender a configurar y utilizar archivos docker-compose.yml para definir y gestionar aplicaciones multicontenedor.
 - Ejecutar múltiples contenedores que interactúan entre sí, simulando un entorno real de desarrollo.
 
 ## Duración aproximada:
-- 60 minutos.
+- 55 minutos.
 
-## Instrucciones 
+---
 
-### Tarea 1. Crear una Aplicación Web Simple (Node.js)
-Paso 1. Crear un directorio de trabajo para la aplicación web con Node.js con el nombre mi-proyecto-docker-compose
+**[⬅️ Atrás]()** | **[Lista General]()** | **[Siguiente ➡️]()**
 
-![cap6_mi-proyecto-docker-compose.png](../images/Ca%C3%ADtulo%206/cap6_mi-proyecto-docker-compose.png)
+---
 
-Paso 2. Inicializar un Proyecto Node.js  ,Crea un nuevo archivo package.json  ejeutando el comando:
+## Instrucciones:
+
+### Tarea 1. Crear una Aplicación Web Simple (Node.js).
+
+Paso 1. Crea un directorio de trabajo para la aplicación web con Node.js con el nombre `mi-proyecto-docker-compose`.
+
+![cap6_mi-proyecto-docker-compose.png](../images/cap6_mi-proyecto-docker-compose.png)
+
+Paso 2. Inicializa un Proyecto Node.js. Para ello, crea un nuevo archivo package.json ejecutando el comando:
 
 ```bash
 npm init -y
 ```
-![cap6_init_note.png](../images/Capitulo%206/cap6_init_note.png)
 
-Paso 3. Instalar el módulo express en el proyecto, ejecutando el comando:
+![cap6_init_note.png](../images/cap6_init_note.png)
+
+Paso 3. Instala el módulo express en el proyecto, ejecutando el comando:
 
 ```bash
 npm install express
 ```
 
-![cap6_install_express.png](../images/Capitulo%206/cap6_install_express.png)
+![cap6_install_express.png](../images/cap6_install_express.png)
 
-Paso 4. Crear un archivo index.js en el directorio raíz del proyecto y agregar el siguiente código:
+Paso 4. Crea un archivo index.js en el directorio raíz del proyecto y agregar el siguiente código:
 
 ```javascript
 const express = require('express');
@@ -44,10 +53,10 @@ app.listen(PORT, () => {
 console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
 ```
-![cap6_index:js.png](../images/Capitulo%206/cap6_index%3Ajs.png)
 
+![cap6_index:js.png](../images/cap6_index_js.png)
 
-Paso 5. Crea un archivo llamado Dockerfile.web en el directorio del proyecto y agrega el siguiente contenido:
+Paso 5. Crea un archivo llamado `Dockerfile.web` en el directorio del proyecto y agrega el siguiente contenido:
 
 ```bash
 # Usar la imagen oficial de Node.js como imagen base
@@ -66,7 +75,7 @@ EXPOSE 3000
 CMD ["node", "index.js"]
 ```
 
-![cap6_dockerfile_web.png](../images/Capitulo%206/cap6_dockerfile_web.png)
+![cap6_dockerfile_web.png](../images/cap6_dockerfile_web.png)
 
 Paso 6. Crea un archivo .dockerignore para evitar copiar archivos innecesarios al contenedor:
 
@@ -75,11 +84,10 @@ node_modules
 npm-debug.log
 ```
 
-![cap6_dockerignore.png](../images/Capitulo%206/cap6_dockerignore.png)
+![cap6_dockerignore.png](../images/cap6_dockerignore.png)
 
+### Tarea 2. Configuración de Docker Compose y ejecución del proyecto.
 
-
-### Tarea 2. Configuración de Docker Compose y Ejecución del Proyecto
 Paso 1. En el directorio del proyecto, crea un archivo docker-compose.yml con la siguiente configuración:
 
 ```bash
@@ -120,18 +128,17 @@ volumes:
   db-data:
 ```
 
-![cap6_docker-compose.png](../images/Capitulo%206/cap6_docker-compose.png)
+![cap6_docker-compose.png](../images/cap6_docker-compose.png)
 
-Paso 2. Ejecutar el comando docker-compose up para construir y ejecutar los contenedores definidos en el archivo docker-compose.yml:
+Paso 2. Ejecuta el comando `docker-compose up` para construir y ejecutar los contenedores definidos en el archivo docker-compose.yml:
 
 ```bash
 docker-compose up
 ```
 
-![cap6_docker-compose-up.png](../images/Capitulo%206/cap6_docker-compose-up.png)
+![cap6_docker-compose-up.png](../images/cap6_docker-compose-up.png)
 
 
-### Resultado esperado
+### Resultado esperado:
 
-![cap6_final.png](../images/Capitulo%206/cap6_final.png)
-
+![cap6_final.png](../images/cap6_final.png)
