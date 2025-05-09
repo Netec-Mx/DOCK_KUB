@@ -1,65 +1,82 @@
-# Nombre del laboratorio 
+# Práctica 3. Almacenamiento en Docker: Volúmenes y montajes con Node.js
 
 ## Objetivo de la práctica:
-- Manejar diferentes opciones de almacenamiento en Docker, incluyendo volúmenes, montajes de enlace y tmpfs
-- Crear y administrar volúmenes de Docker
+Al finalizar la práctica, serás capaz de:
+- Manejar diferentes opciones de almacenamiento en Docker, incluyendo volúmenes, montajes de enlace y tmpfs.
+- Crear y administrar volúmenes de Docker.
 - Entender cómo usar bind mounts para montar directorios específicos.
 
 ## Duración aproximada:
-- 35 minutos.
+- 45 minutos.
 
-## Instrucciones 
+---
 
-### Tarea 1. Búsqueda de Imágenes con docker search
-Paso 1. Para buscar imágenes en Docker Hub, ejecute el siguiente comando:
+**[⬅️ Atrás]()** | **[Lista General]()** | **[Siguiente ➡️]()**
+
+---
+
+## Instrucciones:
+
+### Tarea 1. Búsqueda de Imágenes con Docker Search.
+
+Paso 1. Para buscar imágenes en Docker Hub, ejecuta el siguiente comando:
+
 ```bash
 docker search node
 ```
-![cap3_search_node.png](../images/Capitulo3/cap3_search_node.png)
 
-Paso 2. Obtener una imagen en Docker Hub:
+![cap3_search_node.png](../images/cap3_search_node.png)
+
+Paso 2. Obtén una imagen en Docker Hub:
+
 ```bash
 docker pull node
 ```
-![cap3_pull_node.png](../images/Capitulo3/cap3_pull_node.png)
 
+![cap3_pull_node.png](../images/cap3_pull_node.png)
 
-Paso 3. inspeccionar la imagen:
+Paso 3. Inspecciona la imagen.
+
 ```bash
 docker inspect node
 ```
-![cap3_inspect_node.png](../images/Capitulo3/cap3_inspect_node.png)
 
-Paso 4. Historial de la imagen:
+![cap3_inspect_node.png](../images/ap3_inspect_node.png)
+
+Paso 4. Historial de la imagen.
+
 ```bash
 docker history node
 ```
-![cap3_history_node.png](../images/Capitulo3/cap3_history_node.png)
 
-Paso 5. Eliminar la imagen:
+![cap3_history_node.png](../images/cap3_history_node.png)
+
+Paso 5. Elimina la imagen.
+
 ```bash
 docker rmi node
 ```
 
-Elimina una imagen específica del sistema local. Reemplaza [IMAGE_ID] con el ID de la imagen
-que deseas eliminar.
+Elimina una imagen específica del sistema local. Reemplaza [IMAGE_ID] con el ID de la imagen que deseas eliminar.
 
-![cap3_rmi_node.png](../images/Capitulo3/cap3_rmi_node.png)
+![cap3_rmi_node.png](../images/cap3_rmi_node.png)
 
 
-### Tarea 2. Creación y Optimización de Dockerfiles con una Aplicación NodeJS
-Paso 1. Vamos a crear una aplicación web simple que responda con un mensaje de bienvenida. Crear el directorio del proyecto llamado  thirdlab
+### Tarea 2. Creación y optimización de Dockerfiles con una Aplicación NodeJS.
 
-![cap3_create_file_project.png](../images/Capitulo3/cap3_create_file_project.png)
+Paso 1. Vamos a crear una aplicación web simple que responda con un mensaje de bienvenida; para ello, crea el directorio del proyecto llamado `thirdlab`.
 
-Paso 2. Inicializar nuevo proyecto Node.JS  , Inicializa el proyecto con NPM para crear un package.json
+![cap3_create_file_project.png](../images/cap3_create_file_project.png)
+
+Paso 2. Inicializa un nuevo proyecto Node.JS. Inicializa el proyecto con NPM para crear un **package.json**.
 
 ```bash
 npm init -y
 ```
-![cap3_npm_init.png](../images/Capitulo3/cap3_npm_init.png)
 
-Paso 3. Crea el archivo de la aplicación NodeJS  ,Crea un archivo llamado index.js con el siguiente contenido:
+![cap3_npm_init.png](../images/cap3_npm_init.png)
+
+Paso 3. Crea el archivo de la aplicación NodeJS. Crea un archivo llamado index.js con el siguiente contenido:
 
 ```javascript
 const express = require('express');
@@ -73,17 +90,17 @@ console.log(`Aplicación escuchando en http://localhost:${port}`);
 });
 ```
 
-![cap3_create_index.png](../images/Capitulo3/cap3_create_index.png)
+![cap3_create_index.png](../images/cap3_create_index.png)
 
 Paso 4. Añade Express, un framework de servidor web para NodeJS:
+
 ```bash
 npm install express --save
 ```
 
-![cap3_npm_install_express.png](../images/Capitulo3/cap3_npm_install_express.png)
+![cap3_npm_install_express.png](../images/cap3_npm_install_express.png)
 
-
-Paso 5. Crear un archivo Dockerfile en el directorio del proyecto con el siguiente contenido:
+Paso 5. Crea un archivo Dockerfile en el directorio del proyecto con el siguiente contenido:
 
 ```Dockerfile
 FROM node:14  
@@ -110,23 +127,24 @@ CMD ["node", "app.js"]
 # Ejecuta la aplicación al iniciar el contenedor.  
 ```
 
-![cap3_create_dockerfile.png](../images/Capitulo3/cap3_create_dockerfile.png)
+![cap3_create_dockerfile.png](../images/cap3_create_dockerfile.png)
 
-Paso 6. Construir la imagen de Docker con el siguiente comando:
+Paso 6. Construye la imagen de Docker con el siguiente comando:
+
 ```bash
 docker build -t nodeapp .
 ```
 
-![cap3_build_nodeapp.png](../images/Capitulo3/cap3_build_nodeapp.png)
+![cap3_build_nodeapp.png](../images/cap3_build_nodeapp.png)
 
 Paso 7. Ejecutar la imagen de Docker con el siguiente comando:
+
 ```bash
 docker run -p 3000:3000 nodeapp
 ```
 
-![cap3_run_nodeapp.png](../images/Capitulo3/cap3_run_nodeapp.png)
+![cap3_run_nodeapp.png](../images/cap3_run_nodeapp.png)
 
+### Resultado esperado:
 
-### Resultado esperado
-
-![cap3_final.png](../images/Capitulo3/cap3_final.png)
+![cap3_final.png](../images/cap3_final.png)
