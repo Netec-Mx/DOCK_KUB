@@ -1,14 +1,19 @@
-# Trabajo con Volumes (emptyDir)
+# Práctica 10. Trabajo con volúmenes emptyDir en Kubernetes
 
 ## Objetivo de la práctica:
-- Comprender el funcionamiento de los volúmenes emptyDir en Kubernetes, que son útiles para
-  compartir datos entre contenedores en el mismo Pod.
-
+Al finalizar la práctica, serás capaz de:
+- Comprender el funcionamiento de los volúmenes emptyDir en Kubernetes, que son útiles para compartir datos entre contenedores en el mismo Pod.
 
 ## Duración aproximada:
-- 20 minutos.
+- 60 minutos.
 
-## Instrucciones 
+---
+
+**[⬅️ Atrás]()** | **[Lista General]()** | **[Siguiente ➡️]()**
+
+---
+
+## Instrucciones:
 
 ### Tarea 1. Creacion pod con volumen emptyDir
 
