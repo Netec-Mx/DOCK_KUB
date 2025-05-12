@@ -15,9 +15,9 @@ Al finalizar la práctica, serás capaz de:
 
 ## Instrucciones:
 
-### Tarea 1. Creacion pod con volumen emptyDir
+### Tarea 1. Creación de pod con volumen emptyDir.
 
-Paso 1. crear el emptydir-pod.yaml con la siguiente informacion
+Paso 1. Crea el `emptydir-pod.yaml` con la siguiente información:
 
 ```yaml
 apiVersion: v1
@@ -40,48 +40,49 @@ spec:
     - name: cache-volume
       emptyDir: {}
 ```
-![emptydir-pod-file.png](../images/Capitulo%2010/emptydir-pod-file.png)
 
-Paso 2. Crear el pod con el siguiente comando
+![emptydir-pod-file.png](../images/emptydir-pod-file.png)
+
+Paso 2. Crea el pod con el siguiente comando:
 
 ```bash
 kubectl apply -f emptydir-pod.yaml
 ```
-![cap10_file_at_k8s.png](../images/Capitulo%2010/cap10_file_at_k8s.png)
 
-Paso 3. Acceder al contenedor para poder interactuar con el volumen
+![cap10_file_at_k8s.png](../images/cap10_file_at_k8s.png)
+
+Paso 3. Accede al contenedor para poder interactuar con el volumen.
 
 ```bash
 kubectl exec -it mypod -c mycontainer1 -- /bin/sh
 ```
-![cap10_exec_entry_info.png](../images/Capitulo%2010/cap10_exec_entry_info.png)
 
+![cap10_exec_entry_info.png](../images/cap10_exec_entry_info.png)
 
-Paso 4. Una vez dentro del contenedor, crea un archivo en el directorio /cache . Por ejemplo:
+Paso 4. Una vez dentro del contenedor, crea un archivo en el directorio `/cache`; por ejemplo:
 
 ```bash
 echo "Hola Kubernetes" > /cache/saludo.txt
 exit
 ```
 
-Paso 5. Acceder al Segundo Contenedor y ver el archivo que se guardo en el primer pod
+Paso 5. Accede al segundo contenedor y revisa el archivo que se guardó en el primer pod.
 
 ```bash
 kubectl exec -it mypod -c mycontainer2 -- /bin/sh
 cat /cache/saludo.txt
 ```
 
-![cap10_archive_tex.png](../images/Capitulo%2010/cap10_archive_tex.png)
+![cap10_archive_tex.png](../images/cap10_archive_tex.png)
 
-
-Paso 6. Eliminar el pod
+Paso 6. Elimina el pod.
 
 ```bash
 kubectl delete pod mypod
 ```
-![cap10_final_delete.png](../images/Capitulo%2010/cap10_final_delete.png)
 
-### Resultado esperado
+![cap10_final_delete.png](../images/cap10_final_delete.png)
 
+### Resultado esperado:
 
-![cap10_archive_tex.png](../images/Capitulo%2010/cap10_archive_tex.png)
+![cap10_archive_tex.png](../images/cap10_archive_tex.png)
