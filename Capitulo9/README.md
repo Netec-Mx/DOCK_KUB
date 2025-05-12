@@ -6,7 +6,7 @@ Al finalizar la práctica, serás capaz de:
 - Realizar operaciones básicas en Kubernetes.
 
 ## Duración aproximada:
-- 20 minutos.
+- 80 minutos.
 
 ---
 
