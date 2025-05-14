@@ -1,4 +1,4 @@
-# Nombre del laboratorio 
+# Práctica 12. Despliegue de aplicación Node.js con Ingress en Kubernetes
 
 ## Objetivo de la práctica:
 Al finalizar la práctica, serás capaz de:
@@ -9,20 +9,24 @@ Al finalizar la práctica, serás capaz de:
 ## Duración aproximada:
 - 60  minutos.
 
+---
 
-## Instrucciones 
+**[⬅️ Atrás]()** | **[Lista General]()** | **[Siguiente ➡️]()**
 
-### Tarea 1. Crear una Aplicación Node.js
+---
 
+## Instrucciones:
 
-Paso 1. crear una carpeta llamada lab12 y dentro de esta parpeta crear un proyecto de express
+### Tarea 1. Crear una Aplicación Node.js.
+
+Paso 1. Crea una carpeta llamada `lab12`; dentro de ésta crea un proyecto de express.
 
 ```bash
 npm init -y
 npm install express
 ```
 
-Paso 2. Crear un archivo index.js y agregar el siguiente código
+Paso 2. Crea un archivo index.js y agrega el siguiente código:
 
 ```javascript
 const express = require('express');
@@ -38,7 +42,7 @@ app.listen(port, () => {
 });
 ```
 
-Paso 3. Crear un archivo Dockerfile y agregar el siguiente código
+Paso 3. Crea un archivo Dockerfile y agregar el siguiente código:
 
 ```Dockerfile
 # Usa la última versión de Node.js como base
@@ -64,22 +68,26 @@ CMD ["node", "server.js"]
 
 ```
 
-Paso 4. Crear una imagen de Docker con el siguiente comando
+Paso 4. Crea una imagen de Docker con el siguiente comando:
 
 ```bash
 docker build -t daniel0223/netec_docker_repo:v12 .
 ```
-![Cao12_star_img.png](../images/Capitulo%2012/Cao12_star_img.png)
-Paso 5. Subir la imagen a Docker Hub
+
+![Cao12_star_img.png](../images/Cao12_star_img.png)
+
+Paso 5. Sube la imagen a Docker Hub.
 
 ```bash
 docker push daniel0223/netec_docker_repo:v12 
 ```
-![Cap12_push_docker_hub.png](../images/Capitulo%2012/Cap12_push_docker_hub.png)
+
+![Cap12_push_docker_hub.png](../images/Cap12_push_docker_hub.png)
 
 
-### Tarea 2. Crear los objetos Deployment y Service
-Paso 1. Crear un archivo deployment.yaml y agregar el siguiente código
+### Tarea 2. Crear los objetos Deployment y Service.
+
+Paso 1. Crea un archivo deployment.yaml y agrega el siguiente código:
 
 ```yaml
 apiVersion: apps/v1
@@ -102,15 +110,18 @@ spec:
           ports:
             - containerPort: 3000
 ```
-![Screenshot 2025-03-22 at 11.57.21 PM.png](../images/Capitulo%2012/Screenshot%202025-03-22%20at%2011.57.21%E2%80%AFPM.png)
 
-Paso 2 Crear el deploy 
+![Screenshot 2025-03-22 at 11.57.21 PM.png](../images/Cap12_screenshot.png)
+
+Paso 2. Crea el deploy.
 
 ```bash
 kubectl apply -f deployment.yaml
 ```
-![cap12_server__impl.png](../images/Capitulo%2012/cap12_server__impl.png)
-Paso 3 . Crear el archivo service.yaml
+
+![cap12_server__impl.png](../images/cap12_server__impl.png)
+
+Paso 3. Crea el archivo `service.yaml`.
 
 ```yaml
 apiVersion: v1
@@ -126,15 +137,16 @@ spec:
       port: 8081
       targetPort: 3000
 ```
-![Cap12_push_docker_hub.png](../images/Capitulo%2012/Cap12_push_docker_hub.png)
 
+![Cap12_push_docker_hub.png](../images/Cap12_push_docker_hub.png)
 
-Paso 4. Crear el servicio
+Paso 4. Crea el servicio:
 
 ```bash
 kubectl apply -f service.yaml
 ```
-![cap12_service.png](../images/Capitulo%2012/cap12_service.png)
+
+![cap12_service.png](../images/cap12_service.png)
 
 
 Paso 5. crear el ingress con Nginx
@@ -142,11 +154,10 @@ Paso 5. crear el ingress con Nginx
 ```yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
 ```
-![cap12_dowload.png](../images/Capitulo%2012/cap12_dowload.png)
 
+![cap12_dowload.png](../images/cap12_dowload.png)
 
-
-Paso 6. Crear el archivo ingress-rules.yaml
+Paso 6. Crea el archivo `ingress-rules.yaml`.
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -169,9 +180,9 @@ spec:
                 port:
                   number: 8081
 ```
-![cap12_ingress.png](../images/Capitulo%2012/cap12_ingress.png)
 
+![cap12_ingress.png](../images/cap12_ingress.png)
 
+### Resultado esperado:
 
-### Resultado esperado
-![cap12_final.png](../images/Capitulo%2012/cap12_final.png)
+![cap12_final.png](../images/cap12_final.png)
