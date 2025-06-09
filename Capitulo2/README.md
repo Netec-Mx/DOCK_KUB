@@ -19,11 +19,11 @@ En esta práctica te enfrentarás al desafío de aplicar técnicas avanzadas en 
 
 ### Tarea 1. Configuración de una Aplicación NodeJS.
 
-Paso 1. Crea una carpeta con el nombre `seconLab`.
+Paso 1. Crea una carpeta llamada `seconLab`.
 
 ![cap2_create_file_project.png](../images/cap2_create_file_project.png)
 
-Paso 2. Crea un proyecto backend en Node.js con un endpoint y, posteriormente, dockerízalo. Para ello, ubícate en la carpeta `secondLab` y ejecuta el siguiente comando:
+Paso 2. Crea un proyecto backend en **Node.js** con un endpoint y, posteriormente, dockerízalo. Para ello, ubícate en la carpeta `secondLab` y ejecuta el siguiente comando:
 
 ```bash
 npm init -y|
@@ -31,7 +31,7 @@ npm init -y|
 
 ![cap2_node_json.png](../images/cao2_node_json.png)
 
-Paso 3. Posteriormente, se generará el archivo package.json.
+Paso 3. Una vez ejecutado el comando, se generará el archivo **package.json**.
 
 ![cap2_json_file.png](../images/cap2_json_file.png)
 
@@ -50,7 +50,7 @@ app.listen(port, () => {
 ```
 ![cap2_app_js_file.png](../images/cap2_app_js_file.png)
 
-Paso 5. Instala **express** con el siguiente comando:
+Paso 5. Instala **Express** ejecutando el siguiente comando:
 
 ```bash
 npm install express --save
@@ -66,13 +66,13 @@ node app.js
 
 ![cap2_start_express.png](../images/cap2_start_express.png)
 
-Paso 7. Verifica que la aplicación esté funcionando correctamente en el navegador.
+Paso 7. Abre tu navegador y verifica que la aplicación esté funcionando correctamente.
 
 ![cap2_start_express_web.png](../images/cap2_start_express_web.png)
 
 ### Tarea 2. Dockerfile para la Aplicación NodeJS.
 
-Paso 1. Crea un archivo llamado Dockerfile en la carpeta `seconLab` con el siguiente contenido:
+Paso 1. Crea un archivo llamado `Dockerfile` en la carpeta `seconLab` con el siguiente contenido:
 
 ```dockerfile
 FROM node:latest
@@ -108,7 +108,7 @@ Paso 4. Verifica que la aplicación esté funcionando correctamente en el navega
 
 ### Tarea 3. Logs de un Contenedor.
 
-Paso 1. Verifica los logs del contenedor con el siguiente comando:
+Paso 1. Consulta los logs del contenedor con el siguiente comando:
 
 ```bash
 docker logs <container_id>
